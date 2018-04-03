@@ -10,6 +10,17 @@ export function createShowNotificationAction(payload) {
   };
 }
 
+export function newMessageAction(payload) {
+  return {
+    type: SHOW_NOTIFICATION,
+    payload: {
+      level: 'warning',
+      message: 'new Pokemon!'
+    },
+  };
+}
+
+
 export function createHideNotificationAction() {
   return {
     type: HIDE_NOTIFICATION,

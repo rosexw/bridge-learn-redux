@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 import { FETCH_POKEMONS } from './pokemon-list.types';
 import { cleanPokemonRequest } from '../../utils/pokemonRequest';
-import { createShowNotificationAction } from '../../components/notification/notification.action';
+import { createShowNotificationAction, newMessageAction } from '../../components/notification/notification.action';
 import { APP_LOAD } from '../app/app.types';
 import { fetchPokemons } from '../app/app.actions';
 
@@ -27,5 +27,13 @@ export const fetchPokemonsEpic = action$ =>
       createShowNotificationAction({
         message: 'you are successful',
         level: 'success'
+    })
+  )
+
+  export const newMessageEpic = action$ =>
+    action$.ofType(FETCH_POKEMONS.SUCCESS).map(() =>
+    newMessageAction({
+      message: 'new pokemon',
+      level: 'success'
     })
   )
