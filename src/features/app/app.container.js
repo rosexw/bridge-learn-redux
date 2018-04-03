@@ -2,20 +2,24 @@ import { connect } from 'react-redux';
 import { App } from './app.component';
 import { fetchPokemons } from './app.actions';
 import { isNil } from 'ramda';
-
-// Check out ramda for some awesome utily functions!
-// We could have also used "double bang" (!!) to get a boolean value
-// (I try to avoid "truthy" and "falsy" values)
+import { createShowNotificationAction } from '../../components/notification/notification.action';
+import { NOTIFICATION_LEVELS } from '../../components/notification/notification.types';
 
 const mapStateToProps = ({ pokemon }) => ({
   hasFavouritePokemon: !isNil(pokemon.favouritePokemon),
   favouritePokemon: pokemon.favouritePokemon,
 });
 
-const mapDispatchToProps = {
-  fetchPokemons,
-};
-
-// Notice how my "connected" or "container" components don't have any markup, this is a best practice.
+// Todo: remove mapDispatchToProps
+const mapDispatchToProps = dispatch => ({
+  fetchPokemons: () => dispatch(fetchPokemons()),
+  showNotification: () =>
+    dispatch(
+      createShowNotificationAction({
+        level: NOTIFICATION_LEVELS.WARNING,
+        message: 'test',
+      }),
+    ),
+});
 
 export const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);

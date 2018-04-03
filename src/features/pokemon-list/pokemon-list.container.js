@@ -13,8 +13,6 @@ const mapDispatchToProps = dispatch => ({
   onClickItem: item => dispatch(createUpdateFavouritePokemonAction(item.title)),
 });
 
-// Notice how my "connected" or "container" components don't have any markup, this is a best practice.
-
 export const PokemonListContainer = connect(
   mapStateToProps,
   mapDispatchToProps,

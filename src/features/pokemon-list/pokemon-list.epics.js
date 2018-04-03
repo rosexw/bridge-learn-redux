@@ -6,7 +6,7 @@ import { cleanPokemonRequest } from '../../utils/pokemonRequest';
 
 export const fetchPokemonsEpic = action$ =>
   action$.ofType(FETCH_POKEMONS.START).mergeMap(action =>
-    cleanPokemonRequest(action.endpoint)
+    cleanPokemonRequest('pokemon')
       .map(results => ({
         type: FETCH_POKEMONS.SUCCESS,
         payload: results,

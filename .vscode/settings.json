@@ -1,4 +1,1 @@
-{
-  "eslint.autoFixOnSave": true,
-  "eslint.provideLintTask": true
-}
+{}

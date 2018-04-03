@@ -7,5 +7,4 @@ export const createAppLoadAction = () => ({
 
 export const fetchPokemons = () => ({
   type: FETCH_POKEMONS.START,
-  endpoint: 'pokemon',
 });
