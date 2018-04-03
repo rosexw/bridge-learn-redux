@@ -6,6 +6,7 @@ const mapStateToProps = state => ({
   data: state.pokemon.list.map(item => ({
     title: item.name,
   })),
+  isLoadingList: state.pokemon.isLoadingList,
 });
 
 const mapDispatchToProps = dispatch => ({

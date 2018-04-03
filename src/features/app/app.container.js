@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { App } from './app.component';
+import { fetchPokemons } from './app.actions';
 import { isNil } from 'ramda';
 
 // Check out ramda for some awesome utily functions!
@@ -11,6 +12,10 @@ const mapStateToProps = ({ pokemon }) => ({
   favouritePokemon: pokemon.favouritePokemon,
 });
 
+const mapDispatchToProps = {
+  fetchPokemons,
+};
+
 // Notice how my "connected" or "container" components don't have any markup, this is a best practice.
 
-export const AppContainer = connect(mapStateToProps)(App);
+export const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
